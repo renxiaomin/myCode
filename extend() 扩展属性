@@ -1,0 +1,24 @@
+ //函数的功能是： 将一些对象的属性和方法扩展给target对象
+ //  传入实参的时候将那些被扩展的传到target的后面
+ function extend( target ) {
+	var args = arguments,
+			i = 1,
+			l = args.length;
+
+	var k, obj;
+
+	if ( target == undefined ){
+		return;
+	}
+
+	for( ; i < l; i ++ ){
+		obj = args[ i ];
+		for( k in obj ){
+			if( obj.hasOwnProperty( k ) ){
+				target[ k ] = obj[ k ];
+			}
+		}
+	}
+
+	return target;
+};
